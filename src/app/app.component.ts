@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UnitService } from './unit.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,21 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'blog';
+  arr : string[] = [];
+
+  constructor(public unit: UnitService) {
+
+  }
+  addValue(val: string) {
+this.arr.push(val);
+  }
+
+  removeValue () {
+    this.arr.pop();
+this.unit.save();
+  }
+
+  updateValue(val: string) {
+
+  }
 }
