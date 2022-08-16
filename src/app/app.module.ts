@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
 import { UnitComponent } from './unit/unit.component';
+import { TestDirective } from './test.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UnitComponent
+    UnitComponent,
+    TestDirective
   ],
   imports: [
     BrowserModule,
