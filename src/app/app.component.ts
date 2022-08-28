@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { UnitService } from './unit.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,24 +10,8 @@ import { ActivatedRoute } from '@angular/router';
 
 export class AppComponent {
   title = 'blog';
-  arr : string[] = [];
-
-
-  addValue(val: string) {
-this.arr.push(val);
-  }
-
-  removeValue () {
-    this.arr.pop();
-this.unit.save();
-  }
-
-  updateValue(val: string) {
-
-  }
-
-  
-  constructor(private readonly activatedRoute: ActivatedRoute, public unit: UnitService) {
+  arr: string[] = [];
+  constructor(private activatedRoute: ActivatedRoute, public unit: UnitService,  private router: Router) {
   }
 
   ngOnInit(): void {
@@ -35,8 +19,36 @@ this.unit.save();
       // this.routingParam = params['routingParam'];
     });
 
-    this.activatedRoute.queryParams.subscribe( queryParams => {
+    this.activatedRoute.queryParams.subscribe(queryParams => {
       // this.queryParam = queryParams['queryParam'];
     });
   }
+
+  private addValue(val: string) {
+    this.arr.push(val);
+  }
+
+  removeValue() {
+    this.arr.pop();
+    this.unit.save();
+  }
+
+  updateValue(val: string) {
+
+  }
+
+  df(){
+    this.router.events.pipe()
+      .subscribe(route => {
+        if (route instanceof NavigationEnd) {
+          console.log(this.activatedRoute.firstChild, 'route');
+          
+        // debugger
+          // this.projectType = route.url.match(/[a-z-]+/)[0];
+        }
+      });
+  }
+
+
+  
 }
