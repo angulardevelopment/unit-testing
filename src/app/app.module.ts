@@ -11,6 +11,7 @@ import { AuthInterceptor } from './auth.interceptor';
 import { UnitComponent } from './unit/unit.component';
 import { TestDirective } from './test.directive';
 import { BrowserTracing } from '@sentry/tracing';
+import { DefaultPipe } from './default.pipe';
 
 // Sentry.init({
 //   dsn: <your-sentry-dsn>,
@@ -49,7 +50,8 @@ export class SentryErrorHandler implements ErrorHandler {
   declarations: [
     AppComponent,
     UnitComponent,
-    TestDirective
+    TestDirective,
+    DefaultPipe
   ],
   imports: [
     BrowserModule,

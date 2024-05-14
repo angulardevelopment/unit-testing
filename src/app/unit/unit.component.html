@@ -1,1 +1,40 @@
-<p>unit works!</p>
+<span>{{ title }} app is running!</span>
+
+
+
+
+
+<span class="thumbnail testClass">{{ title }} app is running!</span>
+
+<h1>hello</h1>
+
+
+<button>call Function</button>
+
+<button (click)="removeValue()">call Function</button>
+
+<form>
+
+  <label>Email</label>
+  
+  <input type="email"
+  
+  #email>
+  
+  <label>Password</label>
+  
+  <input type="password"
+  
+  #password>
+  
+  <button type="button"
+  
+  (click)="login(email.value, password.value)"
+  
+  [disabled]="!enabled">Login
+  
+  </button>
+  
+  </form>
+
+  <input type="text" hoverfocus>
