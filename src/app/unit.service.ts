@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UnitService {
+  constructor() {}
 
-  constructor() { }
+  save() {
+    console.log('hi');
+  }
 
-  save()
-{
-console.log('hi');
-
-}
-
+  saveValue(): Observable<any> {
+    console.log('hi');
+    return of({});
+  }
 }

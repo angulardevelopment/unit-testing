@@ -10,6 +10,7 @@ import {
 import { By } from '@angular/platform-browser';
 import { UnitService } from '../unit.service';
 import { DebugElement } from '@angular/core';
+import { of } from 'rxjs';
 
 describe('UnitComponent', () => {
   let component: UnitComponent;
@@ -20,9 +21,16 @@ describe('UnitComponent', () => {
 
   let passwordEl: DebugElement;
   let inputEl: DebugElement;
+  let mockData = { x: 3, y: 4 };
   beforeEach(async () => {
+    const serviceSpy= jasmine.createSpyObj('UnitService', ['saveValue']);
+    serviceSpy.saveValue.and.returnValue(of([mockData]));
+
     await TestBed.configureTestingModule({
       declarations: [UnitComponent],
+      providers: [
+        {provide: UnitService, useValue: serviceSpy}
+      ]
     }).compileComponents();
   });
 
