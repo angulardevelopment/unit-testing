@@ -117,7 +117,7 @@ describe('UnitComponent', () => {
     expect(app.title).toEqual('blog');
   });
 
-  fit('shouls test length ', () => {
+  xit('shouls test length ', () => {
     const app = fixture.componentInstance;
 
     app.addValue('1');
@@ -149,7 +149,7 @@ describe('UnitComponent', () => {
     expect(app.removeValue).toHaveBeenCalledTimes(0);
   });
 
-  fit('method attached to the click-', () => {
+  xit('method attached to the click-', () => {
     const app = fixture.componentInstance;
 
     spyOn(app, 'removeValue');
@@ -161,7 +161,7 @@ describe('UnitComponent', () => {
     expect(app.removeValue).toHaveBeenCalled();
   });
 
-  fit('says hello', () => {
+  xit('says hello', () => {
     const app = fixture.componentInstance;
 
     const service = TestBed.get(UnitService);

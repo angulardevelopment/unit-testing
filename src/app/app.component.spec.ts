@@ -59,7 +59,7 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('.content span').textContent).toContain('blog app is running!');
   });
 
-  fit('says hello', () => {
+  it('says hello', () => {
     component['addValue']('1');
 console.log(component.arr, 'fgc');
 
